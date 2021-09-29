@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exv
 
-BASE_IMG="diag-container"
+BASE_IMG="rporresm-test-diag-container"
 QUAY_IMAGE="quay.io/app-sre/${BASE_IMG}"
 IMG="${BASE_IMG}:latest"
 
