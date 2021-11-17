@@ -35,43 +35,6 @@ objects:
             requests:
               cpu: ${{CPU_REQUEST}}
               memory: ${{MEMORY_REQUEST}}
-          env:
-          - name: PGHOST
-            valueFrom:
-              secretKeyRef:
-                name: ${{POSTGRES_DB_SECRET_NAME}}
-                key: "db.host"
-                optional: true
-          - name: PGPORT
-            valueFrom:
-              secretKeyRef:
-                name: ${{POSTGRES_DB_SECRET_NAME}}
-                key: "db.port"
-                optional: true
-          - name: PGDATABASE
-            valueFrom:
-              secretKeyRef:
-                name: ${{POSTGRES_DB_SECRET_NAME}}
-                key: "db.name"
-                optional: true
-          - name: PGUSER
-            valueFrom:
-              secretKeyRef:
-                name: ${{POSTGRES_DB_SECRET_NAME}}
-                key: "db.user"
-                optional: true
-          - name: PGPASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: ${{POSTGRES_DB_SECRET_NAME}}
-                key: "db.password"
-                optional: true
-          - name: PGSSLMODE
-            value: ${{PGSSLMODE}}
-            optional: true
-          - name: PGCONNECT_TIMEOUT
-            value: ${PGCONNECT_TIMEOUT}
-            optional: true
 parameters:
 - name: IMAGE
   value: quay.io/app-sre/rporresm-test-diag-container
