@@ -1,13 +1,12 @@
-FROM quay.io/centos/centos:7
+# Locking this to a specific Fedora version for now. New releases of Postgresql, and Fedora versions going out of
+# support will drive this upgrade every 6-12 months.
+FROM quay.io/fedora/fedora:39
 
-RUN yum -y install --setopt=tsflags=nodocs epel-release && \
-    yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/postgresql10-libs-10.13-1PGDG.rhel7.x86_64.rpm && \
-    yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/postgresql10-10.13-1PGDG.rhel7.x86_64.rpm && \
-    yum -y update && \
-    yum -y install git pcp telnet nmap python python-pip bind-utils net-tools curl traceroute mtr tcpdump mysql rsync && \
-    yum clean all
+RUN dnf -y update && \
+    dnf -y install python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql postgresql rsync skopeo redis tmux iputils && \
+    dnf clean all
 
-RUN pip install awscli redis==3.5.3
+RUN pip install awscli redis
 
 ADD root /
 
