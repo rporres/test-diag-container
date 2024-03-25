@@ -2,5 +2,5 @@
 set -exv
 docker build  --no-cache \
               --force-rm \
-              -t rporresm-test-diag-container:latest  \
+              -t pipelines-test-container:latest  \
               -f ./Dockerfile .

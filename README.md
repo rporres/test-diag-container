@@ -1,3 +1,3 @@
-# rporresm-test-diag-container
+# pipelines-test-container
 
-This is a repository to test pipelines using openshift-tekton-resources
+This is a repository to test pipelines
