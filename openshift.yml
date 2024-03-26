@@ -28,6 +28,8 @@ objects:
         containers:
         - image: ${IMAGE}:${IMAGE_TAG}
           name: pipelines-test-container
+          command: ["sleep"]
+          args: ["infinity"]
           resources:
             limits:
               cpu: ${{CPU_LIMIT}}
@@ -37,7 +39,7 @@ objects:
               memory: ${{MEMORY_REQUEST}}
 parameters:
 - name: IMAGE
-  value: quay.io/app-sre/pipelines-test-container
+  value: quay.io/app-sre/ubi9-ubi-minimal
 - name: IMAGE_TAG
   value: latest
 - name: NAME
